@@ -1,0 +1,7 @@
+{
+  "name": "LP",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

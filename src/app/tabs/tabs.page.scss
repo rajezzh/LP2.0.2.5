@@ -1,1 +1,34 @@
+ion-tab-button.tab-button-active {
+    --ion-color: red;
+    --ion-text-color: yellow;
+    color: var(--ion-color);
+    background-color: var(--ion-text-color);
+  }
+  
+  div#pill{
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 50px;
+    background: #2dd55b;
+    z-index: 11;
+    border-radius: 20px;
+    opacity: 0.2;
+    left: 0;
+    transform: translate(0px, 2px);
+    transition: all 0.5s ease-in-out;
+  }
 
+  .selected-tab1{
+    transform: translate(0px, 2px);
+  }
+
+  .selected-tab2{
+    transform: translate(125px, 2px) !important;
+    background-color: aqua !important;
+  }
+
+  .selected-tab3{
+    transform: translate(250px, 2px) !important;
+    background-color: brown !important;
+  }

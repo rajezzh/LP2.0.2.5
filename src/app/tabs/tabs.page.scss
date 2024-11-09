@@ -9,26 +9,27 @@ ion-tab-button.tab-button-active {
     position: absolute;
     top: 0;
     width: 100px;
-    height: 50px;
+    height: 40px;
     background: #2dd55b;
     z-index: 11;
     border-radius: 20px;
-    opacity: 0.2;
-    left: 0;
-    transform: translate(0px, 2px);
+    opacity: 0.3;
+    left: 2;
+    transform: translate(0px, 10px);
     transition: all 0.5s ease-in-out;
   }
 
   .selected-tab1{
-    transform: translate(0px, 2px);
+    transform: translate(-33.33vw, 10px) !important;
   }
 
   .selected-tab2{
-    transform: translate(125px, 2px) !important;
+    transform: translate(0%, 10px) !important;
     background-color: aqua !important;
   }
 
   .selected-tab3{
-    transform: translate(250px, 2px) !important;
+    transform: translate(33.33vw, 10px) !important;
     background-color: brown !important;
   }
+

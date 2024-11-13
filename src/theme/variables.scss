@@ -1,2 +1,35 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+:root{
+    --color-text: #000;
+	--color-bg: #fff;
+	--color-link: #d35066;
+	--color-link-hover: #000;
+	--color-info: #333;
+	--color-menu: #031de6;
+	--color-menu-hover: #000;
+	--grid-columns: 2;
+	--details-bg-up: #fff;
+	--details-bg-down: #f5f0ef;
+	--color-product-title: #000;
+	--color-product-subtitle: #a09897;
+	--color-details-title: #000;
+	--color-details-subtitle: #000;
+	--color-descr: #000;
+	--color-price: var(--color-link);
+	--color-bg-addtocart: #000;
+	--color-addtocart: #fff;
+	--color-close: #000;
+	--color-bg-magnifier: #000;
+	--color-magnifier: #fff;
+	--color-btn-hover: #c1b3b1;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+	min-height: 100vh;
+	color: #57585c;
+	color: var(--color-text);
+	background-color: #fff;
+	background-color: var(--color-bg);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+}

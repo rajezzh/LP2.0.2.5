@@ -88,10 +88,23 @@
 .details--open {
 	pointer-events: auto;
 }
-
+.div__close{
+	width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #c74c4c;
+    box-shadow: 7px 7px 20px #dbdfe2, -7px -7px 20px #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: xx-large;
+    color: black;
+    opacity: 0;
+	transition: all 0.3s;
+}
 .details > * {
 	position: relative;
-	opacity: 0;
+	opacity: 1;
 }
 
 .details__bg {

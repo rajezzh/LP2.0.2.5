@@ -26,22 +26,10 @@
            #productIMG id="productIMG{{i}}"/>
           <h2 class="product__title" [innerHTML]="product.title"></h2>
           <h3 class="product__subtitle" [innerHTML]="product.subtitle"></h3>
-          <p class="product__description" [innerHTML]="product.description"></p>
           <div class="product__price" [innerHTML]="product.price"></div>
 
         </div>
       </div>
-      <!-- <div class="grid__item">
-        <div class="product">
-          <div class="product__bg" #productbg></div>
-          <img class="product__img" src="../../assets/img/2.png" alt="img 02" #productimg/>
-          <h2 class="product__title">Space Fantasy</h2>
-          <h3 class="product__subtitle">Danica Green</h3>
-          <p class="product__description">Man bun banjo pop-up meh hammock. Skateboard hammock tousled retro, etsy taiyaki narwhal gentrify fixie food truck microdosing sustainable dreamcatcher.</p>
-          <div class="product__price">$199</div>
-        </div>
-
-      </div> -->
     </div>
   </div>
   <ng-template #detailTemplate>
@@ -64,7 +52,6 @@
       <h2 class="details__title" [innerHTML]="detail.title" #detailtitle></h2>
       <h3 class="details__subtitle" [innerHTML]="detail.subtitle" #detailsubtitle></h3>
       <div class="details__price" [innerHTML]="detail.price" #detailprice ></div>
-      <p class="details__description" [innerHTML]="detail.description" #detaildescription></p>
       <button class="details__addtocart" #detailbutton>Add to Compare</button>
 
     </div>

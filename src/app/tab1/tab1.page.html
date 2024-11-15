@@ -19,11 +19,11 @@
 
     </ng-container>
     <div class="grid" #grid>
-      <div class="grid__item" (click)="open()">
-        <div class="product" #productBG>
+      <div class="grid__item"  *ngFor="let product of products;let i= index" >
+        <div class="product" #productBG id="productBG{{i}}" (click)="open(i,productBG)" >
           <div class="product__bg"></div>
           <img class="product__img" [src]="product.img" alt="img 01" 
-           #productIMG/>
+           #productIMG id="productIMG{{i}}"/>
           <h2 class="product__title" [innerHTML]="product.title"></h2>
           <h3 class="product__subtitle" [innerHTML]="product.subtitle"></h3>
           <p class="product__description" [innerHTML]="product.description"></p>
@@ -45,7 +45,13 @@
     </div>
   </div>
   <ng-template #detailTemplate>
+
     <div class="details" #details>
+      <button class="details__close" #detailclose 
+      (click)="close()">
+        <span style="letter-spacing: 1.5;">close</span>
+      </button>
+  
       <div class="div__close" #divsplash>
         <span style="color: #c74c4c;">x</span>
       </div>

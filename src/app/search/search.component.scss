@@ -1,0 +1,66 @@
+.placeLabel {
+    position: absolute;
+    top: 59px;
+    left: 19px;
+    padding-left: 0.3em;
+    font-weight:500px;
+    height:22px;
+    overflow:hidden;
+    z-index: 999;
+    
+}
+.placeLabel.hidden {
+    display: none;
+  }
+.placeLabel span {
+    display: inline-block;
+    opacity: 0;
+    animation: slideUp 2.5s ease-out infinite;
+    animation-delay: 0s;
+}
+.searchbar-input.sc-ion-searchbar-md {
+    border-radius: 12px;
+}
+@keyframes slideUp {
+    10% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    70% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+.align-field
+{
+    position: relative;
+    top: 39px;
+    width: 384px;
+    left: 12px;
+    height: 59px;
+    padding-right: -61px;
+    border: 2px solid #c3b9b9;
+    border-radius: 18px;
+    --highlight-color-focused: none;
+    box-shadow: 0 1px .5px rgba(var(--shadow-rgb), .13);
+--shadow-rgb : 11,20,26
+}
+ input[type=text]:focus {
+    border: 3px solid #555 !important;
+}
+.icon{
+    position: absolute;
+    top: 50px;
+    font-size: 2em;
+    color: #b3a9a9;
+    right: 27px;
+}

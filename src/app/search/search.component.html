@@ -1,0 +1,7 @@
+<div style="position:relative;top:54px">
+  <label position="floating" class="placeLabel" [ngClass]="{'hidden': isSearchbarFocused}">Search by
+    <span style="letter-spacing: 2px;font-style: italic;">{{currentPlaceholder}}</span>
+  </label>
+<input type="text" appCloseIcon [iconStyles]="closeIconStyles" class="align-field" (focus)="onSearchbarFocus()" (input)="onInpuChange($event)">
+ <ion-icon class="icon" name="search"></ion-icon>
+</div>

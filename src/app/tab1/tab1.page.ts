@@ -1,4 +1,4 @@
-import { Component, ElementRef, TemplateRef, ViewChild, ViewContainerRef, Query, ViewChildren } from '@angular/core';
+import { Component, ElementRef, TemplateRef, ViewChild, ViewContainerRef, Query, ViewChildren, AfterViewInit } from '@angular/core';
 import { IonHeader, IonToolbar, IonTitle, IonContent } from '@ionic/angular/standalone';
 import { ExploreContainerComponent } from '../explore-container/explore-container.component';
 import anime from 'animejs/lib/anime.es.js';
@@ -12,7 +12,7 @@ import { NgFor } from '@angular/common';
   standalone: true,
   imports: [IonicModule, ExploreContainerComponent, NgFor],
 })
-export class Tab1Page {
+export class Tab1Page implements AfterViewInit{
   selectedHTMLElement!: HTMLDivElement;
   @ViewChild('grid') gridContainer !: ElementRef<HTMLDivElement>
   @ViewChild('detailTemplate') detailTemplate !: TemplateRef<any>;
@@ -77,7 +77,7 @@ export class Tab1Page {
   }
 
   ngAfterViewInit() {
-
+    throw new Error()
   }
 
   open(i: number, vc: HTMLDivElement) {

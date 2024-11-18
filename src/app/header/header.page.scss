@@ -60,5 +60,10 @@
     float: left;
     margin-left: -54px;
     font-size: 3em;
-    margin-top: 14px;
+    margin-top: 6px;
+}
+  p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

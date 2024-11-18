@@ -2,34 +2,41 @@
     position: absolute;
     top: 59px;
     left: 19px;
-    padding-left: 0.3em;
-    font-weight:500px;
-    height:22px;
-    overflow:hidden;
+    padding-left: .3em;
+    color: #a3a1a1;
+    font-weight: bold;
+    font-weight: 500px;
+    height: 22px;
+    overflow: hidden;
     z-index: 999;
-    
 }
+
 .placeLabel.hidden {
     display: none;
-  }
+}
+
 .placeLabel span {
     display: inline-block;
     opacity: 0;
     animation: slideUp 2.5s ease-out infinite;
     animation-delay: 0s;
 }
+
 .searchbar-input.sc-ion-searchbar-md {
     border-radius: 12px;
 }
+
 @keyframes slideUp {
     10% {
         opacity: 0;
         transform: translateY(20px);
     }
+
     50% {
         opacity: 1;
         transform: translateY(0);
     }
+
     70% {
         opacity: 1;
         transform: translateY(0);
@@ -40,11 +47,11 @@
         transform: translateY(-20px);
     }
 }
-.align-field
-{
+
+.align-field {
     position: relative;
     top: 39px;
-    width: 384px;
+    width: 361px;
     left: 12px;
     height: 59px;
     padding-right: -61px;
@@ -52,15 +59,54 @@
     border-radius: 18px;
     --highlight-color-focused: none;
     box-shadow: 0 1px .5px rgba(var(--shadow-rgb), .13);
---shadow-rgb : 11,20,26
+    --shadow-rgb: 11, 20, 26
 }
- input[type=text]:focus {
+
+input[type=text]:focus {
     border: 3px solid #555 !important;
 }
-.icon{
+
+.icon {
     position: absolute;
     top: 50px;
+    left: 87%;
     font-size: 2em;
     color: #b3a9a9;
-    right: 27px;
+}
+
+@keyframes RightToleft {
+    0% {
+        left: 0;
+    }
+
+    100% {
+        left: 77%;
+    }
+}
+
+.animate-right-to-left {
+    position: fixed;
+    top: 104px;
+    font-size: 2em;
+    animation: RightToleft 0.5s ease forwards;
+}
+
+.chip-spacing {
+    position: absolute;
+    top: 150px;
+    left: 12px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.chip {
+    width: 134px;
+    height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 14px;
+    background: #dcdfe6;
+    border-radius: 74px;
+    margin: 11px;
 }

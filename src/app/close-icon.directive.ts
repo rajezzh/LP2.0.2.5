@@ -34,6 +34,34 @@ export class CloseIconDirective {
           if(nativeInput){
 
             nativeInput.value = '';
+            nativeInput.focus();
+            this.removeIcon();
+          }
+        });
+      }
+    } else {
+      this.removeIcon();
+    }
+  }
+  @HostListener('focus', ['$event.target.value']) onfocus(value: string): void {
+    const nativeInput = document.querySelector('input');
+    if (value && value.length > 0) {
+      if (!this.iconElement) {
+        this.iconElement = this.renderer.createElement('ion-icon');
+        this.renderer.setAttribute(this.iconElement, 'name', 'close-circle');
+        this.renderer.setAttribute(this.iconElement, 'slot', 'end');
+        const parent = nativeInput?.parentElement || this.el.nativeElement.parentElement;
+        if (parent) {
+          this.renderer.appendChild(parent, this.iconElement);
+        }
+        Object.keys(this.iconStyles).forEach(style => {
+          this.renderer.setStyle(this.iconElement, style, this.iconStyles[style]);
+        });
+        this.renderer.listen(this.iconElement, 'click', () => {
+          if(nativeInput){
+
+            nativeInput.value = '';
+            nativeInput.focus();
             this.removeIcon();
           }
         });

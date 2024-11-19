@@ -1,20 +1,21 @@
-<div>
-  <div style="position:relative;top:54px">
-    <label position="floating" class="placeLabel" [ngClass]="{'hidden': isSearchbarFocused}">Search by
-      <span style="letter-spacing: 2px;font-style: italic;">{{currentPlaceholder}}</span>
+<div class="content-search">
+  <div class="search-align">
+    <label position="floating" class="placeLabel" [ngClass]="{'hidden': isSearchbarFocused}">
+      Search by <span style="letter-spacing: 2px; font-style: italic;">{{currentPlaceholder}}</span>
     </label>
-    <input type="text" appCloseIcon [iconStyles]="closeIconStyles" class="align-field" (focus)="onSearchbarFocus()" (input)="onInpuChange($event)" />
-     <div>|</div>
-    <ion-icon class="icon" [ngClass]="{'interchanged': isInterchanged}" name="search" (click)="onSearch()">
-    </ion-icon>
+    <input type="text" appCloseIcon [iconStyles]="closeIconStyles" class="input-with-end-icon"
+      (focus)="onSearchbarFocus()" (input)="onInpuChange($event)" (blur)="onBlur($event)" />
+    <div *ngIf="dividerShow" class="divider">|</div>
+    <ion-icon class="icon-end-input" name="search" (click)="onSearch()"></ion-icon>
   </div>
-
   <div class="chip-spacing">
-    <div class="chip" *ngFor="let entry of lastEntries;let i = index" (click)="autoPopulate(i)">      
-      <!-- <ion-label>{{entry}}</ion-label> -->
-       <p>{{entry}}</p>
+    <div class="chip" *ngFor="let entry of lastEntries;let i = index" (click)="autoPopulate(i)">
+      <div class="chip-icon">
+        <ion-icon name="timer-outline"></ion-icon>
+      </div>
+      <div class="chip-text">
+        <p>{{entry}}</p>
+      </div>
     </div>
   </div>
 </div>
-  
-

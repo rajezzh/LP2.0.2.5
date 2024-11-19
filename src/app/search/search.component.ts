@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { addIcons } from 'ionicons';
-import { personCircle, search } from 'ionicons/icons';
+import { personCircle, search, timerOutline } from 'ionicons/icons';
 import { IonicModule } from '@ionic/angular';
 import { CloseIconDirective } from '../close-icon.directive';
 
@@ -19,30 +19,22 @@ export class SearchComponent implements OnInit {
   search = ["Name", "Lead Id", "Mobile Number"];
   currentPlaceholder: string = this.search[0];
   private index = 0;
-  isInterchanged: boolean = false;
   lastEntries: string[] = [];
   private intervalId: any;
   searchTerm: string = "";
+  dividerShow: boolean = false;
 
   closeIconStyles = {
-    position: 'fixed',
-    top: '104px',
-    left: '77%',
-    'font-size': '2em',
-    color: 'red'
-  };
-
-  iconStyles = {
     position: 'absolute',
-    top: '50px',
-    right: '27px',
-    'font-size': '2em',
-    color: '#b3a9a9'
+    top: '18px',
+    right: '18px',
+    'font-size': '1.5em',
+    color: 'red',
   };
 
   constructor(public renderer: Renderer2, private el: ElementRef) {
     console.log(`test component....`)
-    addIcons({ personCircle, search });
+    addIcons({ personCircle, search, timerOutline });
   }
 
   ngOnInit() {
@@ -63,45 +55,59 @@ export class SearchComponent implements OnInit {
   }
 
   onSearchbarFocus() {
-    this.isInterchanged = !this.isInterchanged;
-    if (!this.isSearchbarFocused) {
-      this.isSearchbarFocused = true;
-    }
-    else {
-      this.isSearchbarFocused = false;
-    }
+    this.dividerShow = false;
+    this.isSearchbarFocused = true;
+    let searchIcon: any = document.querySelector('.icon-end-input');
+    searchIcon.style.right = "16px";
   }
 
   onInpuChange(event: any) {
     const inputValue = event.target.value;
     this.searchTerm = event.target.value;
+    let searchIcon: any = document.querySelector('.icon-end-input');
     console.log(inputValue);
     if (inputValue.length < 1) {
+      this.dividerShow = false;
       this.isSearchbarFocused = false;
+      searchIcon.style.right = "16px";
     } else {
+      searchIcon.style.right = "65px";
       this.isSearchbarFocused = true;
+      this.dividerShow = true;
     }
   }
 
-  onBlur() {
-    this.isInterchanged = false;
+  onBlur(event: any) {
+    console.group(event.target.value, "ssssssss")
+    if (!event.target.value) {
+      this.isSearchbarFocused = false;
+    }
   }
 
   onSearch() {
-    console.log(this.searchTerm)
-    if (this.lastEntries.length >= 5) {
-      this.lastEntries.pop()
+    if (this.searchTerm && this.searchTerm.trim() !== '') {
+      console.log(this.searchTerm);
+      if (this.lastEntries.length >= 5) {
+        this.lastEntries.pop();
+      }
+      this.lastEntries.unshift(this.searchTerm.trim());
+    } else {
+      console.log('Search term empty');
     }
-    this.lastEntries.unshift(this.searchTerm);
+    this.searchTerm = '';
   }
 
   autoPopulate(index: any) {
+
     this.searchTerm = this.lastEntries[index];
     const input = document.querySelector('input');
     if (input) {
       input.value = this.lastEntries[index];
       console.log(input.value);
+      input.focus();
+      this.dividerShow = true;
+      let searchIcon: any = document.querySelector('.icon-end-input');
+      searchIcon.style.right = "65px";
     }
   }
-
 }

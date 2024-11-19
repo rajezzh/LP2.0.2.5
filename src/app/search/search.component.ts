@@ -1,3 +1,9 @@
+
+/*
+author : Sandhiya.A
+since : 13/11/2024
+description :Custom search component to search the data
+*/
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -41,6 +47,11 @@ export class SearchComponent implements OnInit {
     this.slider();
   }
 
+  /**
+* @author: Sandhiya A
+* @method:slider()
+* @description:creates a sliding up placeholder animation
+*/
   slider() {
     this.currentPlaceholder = this.search[this.index];
     this.intervalId = setInterval(() => {
@@ -48,12 +59,22 @@ export class SearchComponent implements OnInit {
       this.currentPlaceholder = this.search[this.index];
     }, 2500);
   }
+    /**
+* @author: Sandhiya A
+* @method:ngOnDestroy()
+* @description:sliding placeholder animation by clearing the interval when the component is destroyed.
+*/
   ngOnDestroy(): void {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
   }
 
+      /**
+* @author: Sandhiya A
+* @method:  onSearchbarFocus()
+* @description:Handles the focus event for the search bar.
+*/
   onSearchbarFocus() {
     this.dividerShow = false;
     this.isSearchbarFocused = true;
@@ -61,6 +82,11 @@ export class SearchComponent implements OnInit {
     searchIcon.style.right = "16px";
   }
 
+        /**
+* @author: Sandhiya A
+* @method:  onInpuChange()
+* @description:showing and hidding icons based on the input value
+*/
   onInpuChange(event: any) {
     const inputValue = event.target.value;
     this.searchTerm = event.target.value;
@@ -77,6 +103,11 @@ export class SearchComponent implements OnInit {
     }
   }
 
+         /**
+* @author: Sandhiya A
+* @method:  onBlur()
+* @description:If input is empty isSearchbarFocused property to false.
+*/
   onBlur(event: any) {
     console.group(event.target.value, "ssssssss")
     if (!event.target.value) {
@@ -84,6 +115,11 @@ export class SearchComponent implements OnInit {
     }
   }
 
+           /**
+* @author: Sandhiya A
+* @method:  onSearch()
+* @description:Handle the search functionality
+*/
   onSearch() {
     if (this.searchTerm && this.searchTerm.trim() !== '') {
       console.log(this.searchTerm);
@@ -97,8 +133,12 @@ export class SearchComponent implements OnInit {
     this.searchTerm = '';
   }
 
+            /**
+* @author: Sandhiya A
+* @method:  autoPopulate()
+* @description:Search lastEntries and autopopulate input value
+*/
   autoPopulate(index: any) {
-
     this.searchTerm = this.lastEntries[index];
     const input = document.querySelector('input');
     if (input) {

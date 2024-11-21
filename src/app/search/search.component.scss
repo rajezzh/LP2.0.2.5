@@ -109,14 +109,28 @@
 
 .chip {
     width: auto;
-    height: 43px;
+    height: 35px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 14px;
-    background: #dcdfe6;
-    border-radius: 74px;
+    padding: 0 14px 0 12px;
+    background: var(--bg-color-light-gray);
+    border-radius: 30px;
     margin: 5px;
+
+    ion-icon{
+        font-size: 15px;
+        margin-right: 3px;
+    }
+    p{
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0px;
+        margin: 0px;
+    }
 }
 
 .divider {
@@ -173,17 +187,17 @@
     }
 }
 
-.chip-text p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0px;
-    margin: 0px;
-}
+// .chip-text p {
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     padding: 0px;
+//     margin: 0px;
+// }
 
-.chip-icon {
-    position: relative;
-    top: 3px;
-    margin-right: 3px;
-    font-size: 1.5em;
-}
+// .chip-icon {
+//     position: relative;
+//     top: 3px;
+//     margin-right: 3px;
+//     font-size: 1em;
+// }

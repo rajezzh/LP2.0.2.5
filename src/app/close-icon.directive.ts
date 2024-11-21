@@ -23,6 +23,7 @@ export class CloseIconDirective {
         this.iconElement = this.renderer.createElement('ion-icon');
         this.renderer.setAttribute(this.iconElement, 'name', 'close-circle');
         this.renderer.setAttribute(this.iconElement, 'slot', 'end');
+        this.renderer.setAttribute(this.iconElement, 'class', 'close-icon');
         const parent = nativeInput?.parentElement || this.el.nativeElement.parentElement;
         if (parent) {
           this.renderer.appendChild(parent, this.iconElement);
@@ -50,6 +51,7 @@ export class CloseIconDirective {
         this.iconElement = this.renderer.createElement('ion-icon');
         this.renderer.setAttribute(this.iconElement, 'name', 'close-circle');
         this.renderer.setAttribute(this.iconElement, 'slot', 'end');
+        this.renderer.setAttribute(this.iconElement, 'class', 'close-icon');
         const parent = nativeInput?.parentElement || this.el.nativeElement.parentElement;
         if (parent) {
           this.renderer.appendChild(parent, this.iconElement);
@@ -74,7 +76,8 @@ export class CloseIconDirective {
     if (this.iconElement) {
       const parent = this.iconElement.parentElement;
       if (parent) {
-        this.renderer.removeChild(parent, this.iconElement);
+        // this.renderer.removeChild(parent, this.iconElement);
+        this.renderer.setAttribute(this.iconElement, 'class', 'close-icon-hide');
       }
       this.iconElement = null;
     }

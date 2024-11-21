@@ -67,7 +67,7 @@
     border-radius: 25px;
     box-shadow: 0 1px .5px rgba(var(--shadow-rgb), .13);
     --shadow-rgb: 11, 20, 26 font-size: 16px;
-
+    // transition: all 0.5s ease-in-out;
 }
 
 .input-with-end-icon:focus {
@@ -83,6 +83,7 @@
     font-size: 1.5em;
     color: #b3a9a9;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 .chip-spacing {
@@ -126,6 +127,50 @@
     color: #b5afaf;
     height: 39px;
     top: 17px;
+    opacity: 0;
+    // transform: translateX(100%);
+   
+}
+.showDivider {
+    opacity: 1;
+    animation: showLine 0.5s ease-in-out;
+}
+
+.hideDivider {
+    opacity: 0;
+    animation: hideLine 0.4s ease-in-out;
+}
+
+.close-icon{
+    opacity: 1;
+    animation: showLine 0.5s ease-in-out; 
+}
+
+.close-icon-hide{
+    opacity: 0;
+    animation: hideLine 0.4s ease-in-out; 
+}
+
+@keyframes hideLine{
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes showLine{
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
 }
 
 .chip-text p {

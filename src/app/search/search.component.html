@@ -5,7 +5,7 @@
     </label>
     <input type="text" appCloseIcon [iconStyles]="closeIconStyles" class="input-with-end-icon"
       (focus)="onSearchbarFocus()" (input)="onInpuChange($event)" (blur)="onBlur($event)" />
-    <div *ngIf="dividerShow" class="divider">|</div>
+    <div [ngClass]="dividerShow? 'divider showDivider' : 'divider hideDivider'">|</div>
     <ion-icon class="icon-end-input" name="search" (click)="onSearch()"></ion-icon>
   </div>
   <div class="chip-spacing">

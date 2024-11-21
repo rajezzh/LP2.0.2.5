@@ -155,7 +155,7 @@ export class ProductCardComponent{
         duration: 600,
         easing: 'easeOutExpo',
         delay: 100,
-        translateY: '0vh',
+        translateY:   this.showAll ? '5vh' : '-30vh',
         translateX: [0, '0vw'],
         scale: [0.1, 1.1],
         opacity: [0, 1]

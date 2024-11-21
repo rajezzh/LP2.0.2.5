@@ -4,7 +4,8 @@
   <app-header 
   [style.opacity]="showAllProducts || showProductDetails ? '0' : '1' "></app-header>
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
-<app-charts-section></app-charts-section>
+<app-charts-section
+[style.opacity]="showAllProducts || showProductDetails ? '0' : '1' "></app-charts-section>
   <!-- Product card -->
   <div class="product-header" [ngClass]="showAllProducts ? 'product-expand' : 'product-shrink' "
   [style.opacity]="showProductDetails ? '0' : '1' "

@@ -2,12 +2,20 @@ app-header{
 	opacity: 1;
 	transition: opacity 0.65s 50ms ease-in-out;
 }
+
+app-charts-section{
+	position: relative;
+	top: 15vh;
+	opacity: 1;
+	transition: opacity 0.65s 50ms ease-in-out;
+
+}
 .product-header{
 	position: relative;
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    top: 15vh;
+    top: 19vh;
 	margin-top: 1rem;
     align-items: center;
 	z-index: 999;
@@ -35,7 +43,7 @@ app-header{
 }
 
 .product-expand{
-	transform: translateY(-25vh);
+	transform: translateY(-38vh);
 }
 
 .product-shrink{

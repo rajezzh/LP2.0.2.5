@@ -32,6 +32,7 @@ export class TabsPage implements AfterViewInit {
       triangle, ellipse, square, ellipsisHorizontal, home, calendarNumber,
       fastFood, folder, grid, image, qrCode, storefront
     });
+    this.closeModal();
   }
 
   ngAfterViewInit() {
@@ -79,33 +80,63 @@ export class TabsPage implements AfterViewInit {
   }
 
   openModal() {
-    const expand: any = document.querySelector(`.container`);
+    const container: any = document.querySelector(`.container`);
+    // if(container){
+    //   container.style.height = "100vh";
+    // }
+    const blurAnmiation = this.createFadeInAnimation(container as HTMLElement);
+    blurAnmiation.keyframes([
+      { offset: 1, height: "100vh" }
+      ])
+      blurAnmiation.play();
+      const expand: any = document.querySelector(`.modal-container`);
     const fadeInAnmiation = this.createFadeInAnimation(expand as HTMLElement);
     fadeInAnmiation.keyframes([
       { offset: 0, height: "0" },
       { offset: 0, opacity: "0" },
 
-      { offset: 1, height: "300px" },
+      { offset: 1, height: "350px" },
       { offset: 1, opacity: "1" }
     ])
     fadeInAnmiation.play();
     console.log(expand, "expand");
+
+    let icons = document.getElementsByClassName('icon');
+    for (let i = 0; i < icons.length; i++) {
+      icons[i].classList.add('bounce');
+      icons[i].classList.add('shineCard');
+  }
+    console.log(icons,"icons")
 
   }
 
   closeModal() {
     this.toggleMenu = false;
     console.log('close modal');
-    const expand: any = document.querySelector(`.container`);
+    const container: any = document.querySelector(`.container`);
+    // if(container){
+    //   container.style.height = "0px";
+    // }
+    const blurAnmiation = this.createFadeInAnimation(container as HTMLElement);
+    blurAnmiation.keyframes([
+      { offset: 1, height: "0" }
+      ])
+      blurAnmiation.play();
+    const expand: any = document.querySelector(`.modal-container`);
     const fadeInAnmiation = this.createFadeInAnimation(expand as HTMLElement);
     fadeInAnmiation.keyframes([
-      { offset: 0, height: "300px" },
+      { offset: 0, height: "350px" },
       { offset: 0, opacity: "1" },
 
       { offset: 1, height: "0" },
       { offset: 1, opacity: "0" },
     ])
     fadeInAnmiation.play();
+    let icons = document.getElementsByClassName('icon');
+    for (let i = 0; i < icons.length; i++) {
+      icons[i].classList.remove('bounce');
+      icons[i].classList.remove('shineCard');
+  }
   }
 
 }

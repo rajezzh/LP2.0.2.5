@@ -28,16 +28,18 @@
 
   </ion-tab-bar>
 
-  <div class="container">
-    <div class="bar-container" (click)="closeModal()">
-      <div class="bar"></div>
-    </div>
-      <div class="card-container">
-        <div class="card" *ngFor="let item of cards">
-          <div class="icon"><ion-icon name="{{item.name}}"></ion-icon></div>
-          <div class="label">{{item.label}}</div>
-        </div>
+  <div class="container" (click)="closeModal()">
+    <div class="modal-container">
+      <div class="bar-container" (click)="closeModal()">
+        <div class="bar"></div>
       </div>
+        <div class="card-container">
+          <div class="card" *ngFor="let item of cards">
+            <div class="icon"><ion-icon name="{{item.name}}"></ion-icon></div>
+            <div class="label">{{item.label}}</div>
+          </div>
+        </div>
+    </div>
   </div>
   
 

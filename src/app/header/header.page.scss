@@ -1,0 +1,69 @@
+.cardbox{
+    width: 100%;
+    position: fixed;
+    height: 70px;
+    display: block;
+ }
+
+ .calender{
+    width: 57px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: red;
+    flex-direction: column;
+    color: #fff;
+    float: left;
+    margin-top: 14px;
+    margin-left: 23px;
+ }
+.calender span:first-child{   
+    font-size: 16px;   
+}
+
+.calender span:nth-child(2){
+    font-size: 13px;
+}
+.address{
+    width: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    float: left;
+    padding: 5px 15px;
+}
+.address h1{
+    font-size: 24px;
+    color: #000;
+    margin: 0 0 7px;
+    font-weight: 900;
+    padding-top: 8px;
+}
+.address h5{
+    font-size: 16px;
+    color: #525252;
+    margin: 0px 0px 7px 0px;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.iconrht{
+    width: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    float: left;
+    margin-left: -54px;
+    font-size: 3em;
+    margin-top: 6px;
+}
+  p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

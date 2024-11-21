@@ -1,0 +1,67 @@
+{
+    "response":[
+    {
+        "created": "2022-10-31T09:00:00.594Z",
+        "appType": "Lead",
+        "leadType": "CLS",
+        "leadCount": "12",
+        "id": 1
+      },
+      {
+        "created": "2022-05-12T10:00:00.594Z",
+        "appType": "Lead",
+        "leadType": "CLS",
+        "leadCount": "9",
+        "id": 2
+      },
+      {
+        "created": "2023-02-10T11:00:00.594Z",
+        "appType": "Lead",
+        "leadType": "RLS",
+        "leadCount": "5",
+        "id": 3
+      },
+      {
+        "created": "2023-02-10T10:00:00.594Z",
+        "appType": "Application",
+        "leadType": "ICLS",
+        "leadCount": "10",
+        "id": 4
+      },
+      {
+        "created": "2023-02-11T09:00:00.594Z",
+        "appType": "Application",
+        "leadType": "CLS",
+        "leadCount": "3",
+        "id": 5
+      },
+      {
+        "created": "2023-03-10T12:00:00.594Z",
+        "appType": "Application",
+        "leadType": "ICLS",
+        "leadCount": "5",
+        "id": 6
+      },
+      {
+        "created": "2024-11-19T12:00:00.594Z",
+        "appType": "Application",
+        "leadType": "CLS",
+        "leadCount": "5",
+        "id": 7
+      },
+      {
+        "created": "2024-11-20T10:00:00.594Z",
+        "appType": "Lead",
+        "leadType": "ICLS",
+        "leadCount": "15",
+        "id": 8
+      },
+      {
+        "created": "2024-11-17T12:00:00.594Z",
+        "appType": "Lead",
+        "leadType": "RLS",
+        "leadCount": "6",
+        "id": 9
+      }  
+    ]
+}

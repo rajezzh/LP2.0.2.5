@@ -1,0 +1,112 @@
+<div [ngClass]="showFullCharts ? 'tabSection animationTab' : 'tabSection'">
+  <ion-segment (ionChange)="selectedSegment($event)" [value]="selectedVal">
+    <ion-segment-button value="today">
+      <ion-label>Today</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="week">
+      <ion-label>Week</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="month">
+      <ion-label>Month</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="quaterly">
+      <ion-label>Quaterly</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <ion-button shape="round" (click)="selectedSegment('today')">
+    <ion-icon
+      color="dark"
+      slot="icon-only"
+      name="stats-chart-outline"
+    ></ion-icon>
+  </ion-button>
+</div>
+
+<div [ngClass]="showFullCharts ? 'container mg-btm' : 'container'">
+  <div
+    [ngClass]="
+      showFullCharts
+        ? 'chartDetailSection tansitionBtm ion-text-right'
+        : 'chartDetailSection ion-text-right'
+    "
+  >
+    <div class="insideCardTabs">
+      <ion-item lines="none">
+        <ion-select interface="popover" placeholder="Leads">
+          <ion-select-option value="L">Leads</ion-select-option>
+          <ion-select-option value="A">Applications</ion-select-option>
+          <!-- <ion-select-option value="orange">Orange</ion-select-option> -->
+        </ion-select>
+      </ion-item>
+      <div>
+        <ion-button id="click-trigger" class="ion-margin-end" shape="round" (click)="showChartsList()">
+          <ion-icon
+            slot="icon-only"
+            name="settings"
+            color="dark"
+          ></ion-icon>
+        </ion-button>
+        <ion-popover class="setting-popover" trigger="click-trigger" triggerAction="click" [dismissOnSelect]="true">
+          <ng-template>
+            <ion-content>
+              <ion-list class="ion-no-margin">
+                <ion-item [ngClass]="chart.checked ? 'active' : ''" lines="none" [button]="true" [detail]="false" *ngFor="let chart of chartList" (click)="selectedChart(chart)">{{chart.name}}</ion-item>
+              </ion-list>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+        <ion-button class="" shape="round" (click)="close()">
+          <ion-icon
+            slot="icon-only"
+            name="close-outline"
+            color="dark"
+          ></ion-icon>
+        </ion-button>
+      </div>
+    </div>
+
+    <ion-card class="ion-text-left">
+      <div class="insideChart">
+        <div class="leftSection">
+          <p>
+            Leads this month
+          </p>
+          <h5 class="">{{ count }}</h5>
+          <p class="noteText">
+           <img class="bgimg" src="{{ImgBasePath}}cool.png" />  You've made 30 leads
+          </p>
+        </div>
+        <div
+          class="rightSection"
+          *ngIf="chartData && chartData.data.length > 0"
+        >
+          <google-chart
+            style="height: 100%; width: 100%"
+            [title]="chartData.title"
+            [type]="chartData.type"
+            [data]="chartData.data"
+            [columns]="chartData.columnNames"
+            [options]="chartData.options"
+            [dynamicResize]="true"
+          >
+          </google-chart>
+        </div>
+        <!-- <ng-template #showLoad>
+            <div class="rightSection">
+              <ion-spinner name="lines"></ion-spinner>
+            </div>
+          </ng-template> -->
+      </div>
+      <div class="cardBottom">
+        <ion-segment class="cardSegment" value="lead" (ionChange)="selectedAppType($event)">
+          <ion-segment-button value="lead">
+            <ion-label>Leads</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="application">
+            <ion-label>Applications</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </div>
+    </ion-card>
+  </div>
+</div>

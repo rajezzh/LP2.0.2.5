@@ -67,7 +67,7 @@
     border-radius: 25px;
     box-shadow: 0 1px .5px rgba(var(--shadow-rgb), .13);
     --shadow-rgb: 11, 20, 26 font-size: 16px;
-
+    // transition: all 0.5s ease-in-out;
 }
 
 .input-with-end-icon:focus {
@@ -83,6 +83,7 @@
     font-size: 1.5em;
     color: #b3a9a9;
     cursor: pointer;
+    transition: all 0.5s ease-in-out;
 }
 
 .chip-spacing {
@@ -108,14 +109,28 @@
 
 .chip {
     width: auto;
-    height: 43px;
+    height: 35px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    padding: 14px;
-    background: #dcdfe6;
-    border-radius: 74px;
+    padding: 0 14px 0 12px;
+    background: var(--bg-color-light-gray);
+    border-radius: 30px;
     margin: 5px;
+
+    ion-icon{
+        font-size: 15px;
+        margin-right: 3px;
+    }
+    p{
+        font-size: 13px;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0px;
+        margin: 0px;
+    }
 }
 
 .divider {
@@ -126,19 +141,63 @@
     color: #b5afaf;
     height: 39px;
     top: 17px;
+    opacity: 0;
+    // transform: translateX(100%);
+   
+}
+.showDivider {
+    opacity: 1;
+    animation: showLine 0.5s ease-in-out;
 }
 
-.chip-text p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding: 0px;
-    margin: 0px;
+.hideDivider {
+    opacity: 0;
+    animation: hideLine 0.4s ease-in-out;
 }
 
-.chip-icon {
-    position: relative;
-    top: 3px;
-    margin-right: 3px;
-    font-size: 1.5em;
+.close-icon{
+    opacity: 1;
+    animation: showLine 0.5s ease-in-out; 
 }
+
+.close-icon-hide{
+    opacity: 0;
+    animation: hideLine 0.4s ease-in-out; 
+}
+
+@keyframes hideLine{
+    0% {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes showLine{
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0%);
+        opacity: 1;
+    }
+}
+
+// .chip-text p {
+//     white-space: nowrap;
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     padding: 0px;
+//     margin: 0px;
+// }
+
+// .chip-icon {
+//     position: relative;
+//     top: 3px;
+//     margin-right: 3px;
+//     font-size: 1em;
+// }

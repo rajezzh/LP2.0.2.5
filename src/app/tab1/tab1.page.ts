@@ -4,13 +4,14 @@ import { ExploreContainerComponent } from '../explore-container/explore-containe
 import anime from 'animejs/lib/anime.es.js';
 import { IonicModule } from '@ionic/angular';
 import { NgFor } from '@angular/common';
+import { ChartsSectionComponent } from '../components/charts-section/charts-section.component';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
   standalone: true,
-  imports: [IonicModule, ExploreContainerComponent, NgFor],
+  imports: [IonicModule, ExploreContainerComponent, NgFor, ChartsSectionComponent],
 })
 export class Tab1Page implements AfterViewInit{
   selectedHTMLElement!: HTMLDivElement;

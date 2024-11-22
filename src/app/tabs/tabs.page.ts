@@ -2,7 +2,7 @@ import { CommonModule, NgClass } from '@angular/common';
 import { Component, ContentChildren, EnvironmentInjector, inject, ViewChildren, AfterViewInit, ViewChild } from '@angular/core';
 import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { triangle, ellipse, square, ellipsisVertical, ellipsisHorizontal, home, calendarNumber, fastFood, folder, grid, image, qrCode, storefront } from 'ionicons/icons';
+import { triangle, ellipse, square, ellipsisVertical, ellipsisHorizontal, home, calendarNumber, fastFood, folder, grid, image, qrCode, storefront, heart, personAdd, create, library, bookmarks, closeCircle, archive } from 'ionicons/icons';
 import { AnimationController } from '@ionic/angular';
 
 @Component({
@@ -17,22 +17,23 @@ export class TabsPage implements AfterViewInit {
   @ViewChildren(IonTabButton) tabButtons!: IonTabButton[];
   selectedTab = ''
   cards = [
-    { name: "home", label: "home" },
-    { name: "calendar-number", label: "calendar" },
-    { name: "fast-food", label: "fast" },
-    { name: "folder", label: "folder" },
-    { name: "grid", label: "grid" },
-    { name: "image", label: "image" },
-    { name: "qr-code", label: "qr" },
-    { name: "storefront", label: "storefront" }
+    { name: "person-add", label: "Create lead" },
+    { name: "create", label: "Existing app" },
+    { name: "library", label: "Credit app" },
+    { name: "folder", label: "Group inbox" },
+    { name: "grid", label: "Sanctioned" },
+    { name: "bookmarks", label: "OPS" },
+    { name: "close-circle", label: "Rejected" },
+    { name: "archive", label: "PDD" }
   ]
-  toggleMenu = false;
+   toggleMenu = false;
   constructor(public anmiationCtrl: AnimationController) {
     addIcons({
       triangle, ellipse, square, ellipsisHorizontal, home, calendarNumber,
-      fastFood, folder, grid, image, qrCode, storefront
+      fastFood, folder, grid, image, qrCode, storefront,personAdd,create,library,bookmarks,
+      closeCircle,archive
     });
-    this.closeModal();
+      this.closeModal();
   }
 
   ngAfterViewInit() {
@@ -45,6 +46,7 @@ export class TabsPage implements AfterViewInit {
   tabChanged() {
 
     this.selectedTab = this.tabButtons.find(e => e.selected == true)?.tab as string
+    this.closeModal()
   }
 
   // setTransform() {
@@ -80,10 +82,10 @@ export class TabsPage implements AfterViewInit {
   }
 
   openModal() {
-    const container: any = document.querySelector(`.container`);
-    // if(container){
-    //   container.style.height = "100vh";
-    // }
+    const container: any = document.querySelector(`.bottom-container`);
+    if(container){
+      container.style.bottom = "0";
+    }
     const blurAnmiation = this.createFadeInAnimation(container as HTMLElement);
     blurAnmiation.keyframes([
       { offset: 1, height: "100vh" }
@@ -113,10 +115,11 @@ export class TabsPage implements AfterViewInit {
   closeModal() {
     this.toggleMenu = false;
     console.log('close modal');
-    const container: any = document.querySelector(`.container`);
-    // if(container){
-    //   container.style.height = "0px";
-    // }
+    const container: any = document.querySelector(`.bottom-container`);
+    if(container){
+
+      container.style.bottom = "0";
+    }
     const blurAnmiation = this.createFadeInAnimation(container as HTMLElement);
     blurAnmiation.keyframes([
       { offset: 1, height: "0" }

@@ -104,17 +104,22 @@ ion-tab-bar {
 
 .more-container {
   position: absolute;
-  bottom: 1px;
+  bottom: -6px;
   right: 0;
   z-index: 9999;
   text-align: center;
   width: 100px;
-  border-top: 1px solid var(--ion-tab-bar-border-color, var(--ion-border-color, var(--ion-color-step-150, var(--ion-background-color-step-150, rgba(0, 0, 0, 0.07)))));
-  padding: 11px 0 0 0;
+  border-top: 1px solid var(--ion-tab-bar-border-color, var(--ion-border-color, var(--ion-color-step-150, var(--ion-background-color-step-150, rgba(0, 0, 0, .07)))));
+  /* padding-top: 1rem; */
   display: block;
+  background: #fff;
+  height: 63px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
   background: white;
-  height: 56px;
-
+ 
   ion-icon {
     font-size: 24px;
   }
@@ -126,18 +131,14 @@ ion-tab-bar {
   font-weight: 600;
 }
 
-.container {
+.bottom-container {
   position: absolute;
-  bottom: 0;
   left: 0;
   width: 100%;
-  // background-color: dimgray;
-  // border-radius: 20px 20px 0px 0px;
   z-index: 0;
-  // background: white;
-  --background: rgba(44, 39, 45, 0.2);
-  backdrop-filter: blur(6px);
-  // border-top: 2px solid lightgray;
+  background: #b3b3b359;
+  -webkit-backdrop-filter: blur(.8px);
+  backdrop-filter: blur(2px);
 }
 
 .modal-container {
@@ -208,6 +209,9 @@ ion-tab-bar {
 .label {
   margin: 5px;
   color: black;
+  text-align: center;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .shineCard:before {

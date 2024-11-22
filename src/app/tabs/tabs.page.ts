@@ -47,19 +47,19 @@ export class TabsPage implements AfterViewInit {
     this.selectedTab = this.tabButtons.find(e => e.selected == true)?.tab as string
   }
 
-  setTransform() {
-    console.log('ngclass', this.selectedTab)
-    if (this.selectedTab === 'tab2') {
-      return 'selected-tab2'
-    } else if (this.selectedTab === 'tab3') {
-      return 'selected-tab3'
-    } else if (this.selectedTab === 'tab1') {
-      return 'selected-tab1'
+  // setTransform() {
+  //   console.log('ngclass', this.selectedTab)
+  //   if (this.selectedTab === 'tab2') {
+  //     return 'selected-tab2'
+  //   } else if (this.selectedTab === 'tab3') {
+  //     return 'selected-tab3'
+  //   } else if (this.selectedTab === 'tab1') {
+  //     return 'selected-tab1'
 
-    }
+  //   }
 
-    return ''
-  }
+  //   return ''
+  // }
 
   openMore() {
     this.toggleMenu = !this.toggleMenu;

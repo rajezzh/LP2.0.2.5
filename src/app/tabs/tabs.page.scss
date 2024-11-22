@@ -73,6 +73,7 @@ div#pill {
   left: 35%;
   transition: all 0.3s;
   transition-delay: 0.1s;
+  font-size: 24px;
 }
 
 .wrap>ion-label {
@@ -87,6 +88,7 @@ div#pill {
 .wrap.active>ion-icon {
   left: 0px;
   color: white;
+  font-size: 12px;
 }
 
 .wrap.active>ion-label {
@@ -100,7 +102,7 @@ div#pill {
 
 
 ion-tab-bar {
-  width: calc(100% - 100px);
+  // width: calc(100% - 100px);
   z-index: 9999;
 }
 

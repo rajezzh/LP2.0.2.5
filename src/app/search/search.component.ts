@@ -5,7 +5,7 @@ since : 13/11/2024
 description :Custom search component to search the data
 */
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { addIcons } from 'ionicons';
 import { personCircle, search, timerOutline } from 'ionicons/icons';
@@ -37,6 +37,7 @@ export class SearchComponent implements OnInit {
     'font-size': '1.5em',
     color: 'red',
   };
+  @Output() inputFocused = new EventEmitter<any>();
 
   constructor(public renderer: Renderer2, private el: ElementRef) {
     console.log(`test component....`)
@@ -83,6 +84,7 @@ export class SearchComponent implements OnInit {
     searchIcon.style.right = "65px";
     this.dividerShow = true;
     }
+  this.inputFocused.emit(false);
   }
 
   focusOutFunction(){
@@ -128,6 +130,7 @@ export class SearchComponent implements OnInit {
     console.group(event.target.value, "ssssssss")
     if (!event.target.value) {
       this.isSearchbarFocused = false;
+      this.inputFocused.emit(true);
     }
   }
 

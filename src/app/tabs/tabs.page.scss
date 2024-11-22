@@ -51,8 +51,9 @@ div#pill {
   left: 110%;
   opacity: 0;
   border-radius: 20px;
-  padding: 0 5px;
+  padding: 0 15px;
   transition: all 0.25s ease-in-out;
+  margin: 10px;
 }
 
 // .wrap:hover::before {
@@ -61,7 +62,7 @@ div#pill {
 // }
 
 .wrap.active::before{
-  left: -10%;
+  left: -20%;
   opacity: 1;
 
 }

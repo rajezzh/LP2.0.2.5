@@ -81,7 +81,7 @@ export class TabsPage implements AfterViewInit {
   createFadeInAnimation(baseEl: HTMLElement) {
     return this.anmiationCtrl.create()
       .addElement(baseEl)
-      .duration(500)
+      .duration(250)
       .easing('ease-in-out')
     // .fromTo('opacity','0','1');
   }

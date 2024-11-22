@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SearchComponent } from '../search/search.component';
+import { location } from 'ionicons/icons';
+import { addIcons } from 'ionicons';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +13,13 @@ import { SearchComponent } from '../search/search.component';
   standalone: true,
   imports:[CommonModule,FormsModule,IonicModule,SearchComponent],
 })
-export class HeaderPage implements OnInit {
+export class HeaderPage {
 
-  constructor() { }
+  constructor() { 
+    addIcons({
+     location
+    });
 
-  
-  ngOnInit() {
   }
 
   onInputFocusReceived(data: any) {
@@ -37,5 +40,6 @@ export class HeaderPage implements OnInit {
       searchDiv.style.top = '0px';
     }
   }
+  
 
 }

@@ -1,4 +1,3 @@
-
 /*
 author : Sandhiya.A
 since : 13/11/2024
@@ -20,14 +19,13 @@ import { CloseIconDirective } from '../close-icon.directive';
   imports: [CommonModule, FormsModule, IonicModule, CloseIconDirective],
 })
 export class SearchComponent implements OnInit {
-
   isSearchbarFocused = false;
-  search = ["Name", "Lead Id", "Mobile Number"];
+  search = ['Name', 'Lead Id', 'Mobile Number'];
   currentPlaceholder: string = this.search[0];
   private index = 0;
   lastEntries: string[] = [];
   private intervalId: any;
-  searchTerm: string = "";
+  searchTerm: string = '';
   dividerShow: boolean = false;
 
   closeIconStyles = {
@@ -39,8 +37,9 @@ export class SearchComponent implements OnInit {
   };
   @Output() inputFocused = new EventEmitter<any>();
 
+  showCloseIcon:boolean = false;
   constructor(public renderer: Renderer2, private el: ElementRef) {
-    console.log(`test component....`)
+    console.log(`test component....`);
     addIcons({ personCircle, search, timerOutline });
   }
 
@@ -49,10 +48,10 @@ export class SearchComponent implements OnInit {
   }
 
   /**
-* @author: Sandhiya A
-* @method:slider()
-* @description:creates a sliding up placeholder animation
-*/
+   * @author: Sandhiya A
+   * @method:slider()
+   * @description:creates a sliding up placeholder animation
+   */
   slider() {
     this.currentPlaceholder = this.search[this.index];
     this.intervalId = setInterval(() => {
@@ -60,51 +59,54 @@ export class SearchComponent implements OnInit {
       this.currentPlaceholder = this.search[this.index];
     }, 2500);
   }
-    /**
-* @author: Sandhiya A
-* @method:ngOnDestroy()
-* @description:sliding placeholder animation by clearing the interval when the component is destroyed.
-*/
+  /**
+   * @author: Sandhiya A
+   * @method:ngOnDestroy()
+   * @description:sliding placeholder animation by clearing the interval when the component is destroyed.
+   */
   ngOnDestroy(): void {
     if (this.intervalId) {
       clearInterval(this.intervalId);
     }
   }
 
-      /**
-* @author: Sandhiya A
-* @method:  onSearchbarFocus()
-* @description:Handles the focus event for the search bar.
-*/
-  onSearchbarFocus() {
-    this.dividerShow = false; //false
-    this.isSearchbarFocused = true;
-    if(this.searchTerm && this.searchTerm !== ""){
-    let searchIcon: any = document.querySelector('.icon-end-input');
-    searchIcon.style.right = "65px";
-    this.dividerShow = true;
-    }
-  this.inputFocused.emit(false);
+  onClose(){
+    this.searchTerm = '';
+    this.isSearchbarFocused = false;
   }
 
-  focusOutFunction(){
+  /**
+   * @author: Sandhiya A
+   * @method:  onSearchbarFocus()
+   * @description:Handles the focus event for the search bar.
+   */
+  onSearchbarFocus() {
+      this.isSearchbarFocused = true;
+      let searchIcon: any = document.querySelector('.icon-end-input');
+      searchIcon.style.right = '65px';
+      this.dividerShow = true;
+      this.showCloseIcon = true;
+      this.inputFocused.emit(false);
+
+  }
+
+  focusOutFunction() {
     console.log(this.searchTerm, 'shdsjd');
-    if(this.searchTerm && this.searchTerm !== ""){
-      this.isSearchbarFocused = true; 
-    }else{
-      this.isSearchbarFocused = false; 
+    this.isSearchbarFocused = false;
+    if (this.searchTerm && this.searchTerm !== '') {
+      this.isSearchbarFocused = true;
     }
     this.dividerShow = false;
-    // this.isSearchbarFocused = false; //true
     let searchIcon: any = document.querySelector('.icon-end-input');
-    searchIcon.style.right = "16px";
+    searchIcon.style.right = '16px';
+    this.showCloseIcon= false;
   }
 
-        /**
-* @author: Sandhiya A
-* @method:  onInpuChange()
-* @description:showing and hidding icons based on the input value
-*/
+  /**
+   * @author: Sandhiya A
+   * @method:  onInpuChange()
+   * @description:showing and hidding icons based on the input value
+   */
   onInpuChange(event: any) {
     const inputValue = event.target.value;
     this.searchTerm = event.target.value;
@@ -113,32 +115,34 @@ export class SearchComponent implements OnInit {
     if (inputValue.length < 1) {
       this.dividerShow = false;
       this.isSearchbarFocused = false;
-      searchIcon.style.right = "16px";
+      this.showCloseIcon= false;
+      searchIcon.style.right = '16px';
     } else {
-      searchIcon.style.right = "65px";
+      searchIcon.style.right = '65px';
       this.isSearchbarFocused = true;
       this.dividerShow = true;
+      this.showCloseIcon= true;
     }
   }
 
-         /**
-* @author: Sandhiya A
-* @method:  onBlur()
-* @description:If input is empty isSearchbarFocused property to false.
-*/
+  /**
+   * @author: Sandhiya A
+   * @method:  onBlur()
+   * @description:If input is empty isSearchbarFocused property to false.
+   */
   onBlur(event: any) {
-    console.group(event.target.value, "ssssssss")
+    console.group(event.target.value, 'ssssssss');
     if (!event.target.value) {
       this.isSearchbarFocused = false;
       this.inputFocused.emit(true);
     }
   }
 
-           /**
-* @author: Sandhiya A
-* @method:  onSearch()
-* @description:Handle the search functionality
-*/
+  /**
+   * @author: Sandhiya A
+   * @method:  onSearch()
+   * @description:Handle the search functionality
+   */
   onSearch() {
     if (this.searchTerm && this.searchTerm.trim() !== '') {
       console.log(this.searchTerm);
@@ -150,13 +154,15 @@ export class SearchComponent implements OnInit {
       console.log('Search term empty');
     }
     this.searchTerm = '';
+    this.isSearchbarFocused=false;
+    // this.focusOutFunction();
   }
 
-            /**
-* @author: Sandhiya A
-* @method:  autoPopulate()
-* @description:Search lastEntries and autopopulate input value
-*/
+  /**
+   * @author: Sandhiya A
+   * @method:  autoPopulate()
+   * @description:Search lastEntries and autopopulate input value
+   */
   autoPopulate(index: any) {
     this.searchTerm = this.lastEntries[index];
     const input = document.querySelector('input');
@@ -166,7 +172,7 @@ export class SearchComponent implements OnInit {
       input.focus();
       this.dividerShow = true;
       let searchIcon: any = document.querySelector('.icon-end-input');
-      searchIcon.style.right = "65px";
+      searchIcon.style.right = '65px';
     }
   }
 }

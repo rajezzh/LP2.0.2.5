@@ -142,11 +142,12 @@
     height: 39px;
     top: 17px;
     opacity: 0;
-    // transform: translateX(100%);
-   
+    visibility: hidden;
+   transition: all 0.5s ease-in-out;
 }
 .showDivider {
     opacity: 1;
+    visibility: visible;
     animation: showLine 0.5s ease-in-out;
 }
 
@@ -157,6 +158,16 @@
 
 .close-icon{
     opacity: 1;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 1.5em;
+    color: red;
+    visibility: hidden;
+}
+.close-icon-show{
+    opacity: 1;
+    visibility: visible;
     animation: showLine 0.5s ease-in-out; 
 }
 
@@ -169,10 +180,12 @@
     0% {
         transform: translateX(0%);
         opacity: 1;
+        visibility: visible;
     }
     100%{
         transform: translateX(100%);
         opacity: 0;
+        visibility: hidden;
     }
 }
 

@@ -5,28 +5,49 @@
     display: block;
  }
 
- .calender{
-    width: 57px;
-    height: 55px;
-    display: flex;
+
+ .calender {
+    width: auto;
+    height: auto;
+    display: flex
+;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0 5px;
     border-radius: 10px;
-    background: red;
+    background: orangered;
+    // background:rgba(97, 34, 72, 0.8);
     flex-direction: column;
     color: #fff;
     float: left;
     margin-top: 14px;
-    margin-left: 23px;
- }
-.calender span:first-child{   
-    font-size: 16px;   
+    margin-left: 15px;
+    // filter: drop-shadow(8px 5px 13px #787676);
 }
 
-.calender span:nth-child(2){
-    font-size: 13px;
+.loc-icon{
+    font-size: x-large;
+    position: relative;
+    top: .3rem;
+    left: -50%;
+    transform: translate(30%, 0);
 }
+
+.text-1{
+    line-height: 0.7;
+    position: relative;
+    top: -8px;
+    left: 6px;
+    font-size: large;
+}
+
+.text-2{
+    position: relative;
+    top: -5px;
+    font-size: small;
+    line-height: 1;
+}
+
 .address{
     width: calc(100% - 100px);
     display: flex;

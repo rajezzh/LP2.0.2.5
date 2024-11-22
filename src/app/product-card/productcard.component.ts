@@ -41,29 +41,29 @@ export class ProductCardComponent{
 
   products = [{
     img: '../../assets/img/01.png',
-    title: 'Marble Dream',
-    subtitle: 'Constantin Frecker',
+    title: 'Royal Enfield',
+    subtitle: 'Classic 350',
     price: '₹ 1.29L',
     description: 'Hashtag cred air plant drinking vinegar. Leggings yuccie chambray pop-up tousled hell of. Portland wolf mumblecore, synth cold-pressed polaroid poke cardigan gochujang farm-to-table photo booth.',
   },
   {
     img: '../../assets/img/02.png',
-    title: 'Ephiphone Dream',
-    subtitle: 'Ephiphone Frecker',
+    title: 'Royal Enfield',
+    subtitle: 'Super Meteor 650',
     price: '₹ 1.29L',
     description: 'Hashtag cred air plant drinking vinegar. Leggings yuccie chambray pop-up tousled hell of. Portland wolf mumblecore, synth cold-pressed polaroid poke cardigan gochujang farm-to-table photo booth.',
   },
   {
     img: '../../assets/img/03.png',
-    title: 'Marble Dream',
-    subtitle: 'Constantin Frecker',
+    title: 'Royal Enfield',
+    subtitle: 'Bear 650',
     price: '₹ 4.29L',
     description: 'Hashtag cred air plant drinking vinegar. Leggings yuccie chambray pop-up tousled hell of. Portland wolf mumblecore, synth cold-pressed polaroid poke cardigan gochujang farm-to-table photo booth.',
   },
   {
     img: '../../assets/img/04.png',
-    title: 'Ephiphone Dream',
-    subtitle: 'Ephiphone Frecker',
+    title: 'Royal Enfield',
+    subtitle: 'Super Hunter 650',
     price: '₹ 5.5L',
     description: 'Hashtag cred air plant drinking vinegar. Leggings yuccie chambray pop-up tousled hell of. Portland wolf mumblecore, synth cold-pressed polaroid poke cardigan gochujang farm-to-table photo booth.',
   }]

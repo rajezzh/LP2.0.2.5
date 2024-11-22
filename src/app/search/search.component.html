@@ -3,8 +3,8 @@
     <label position="floating" class="placeLabel" [ngClass]="{'hidden': isSearchbarFocused}">
       Search by <span style="letter-spacing: 2px; font-style: italic;">{{currentPlaceholder}}</span>
     </label>
-    <input type="text" appCloseIcon [iconStyles]="closeIconStyles" class="input-with-end-icon"
-      (focus)="onSearchbarFocus()" (input)="onInpuChange($event)" (blur)="onBlur($event)" />
+    <input type="text" appCloseIcon [iconStyles]="closeIconStyles" class="input-with-end-icon" [value]="searchTerm"
+      (focus)="onSearchbarFocus()" (input)="onInpuChange($event)" (blur)="onBlur($event)" (focusout)="focusOutFunction()" (keyup.enter)="onSearch()"/>
     <div [ngClass]="dividerShow? 'divider showDivider' : 'divider hideDivider'">|</div>
     <ion-icon class="icon-end-input" name="search" (click)="onSearch()"></ion-icon>
   </div>

@@ -25,7 +25,8 @@ import { ChartType, GoogleChartsModule } from 'angular-google-charts';
 import { addIcons } from 'ionicons';
 import { closeOutline, settings, statsChartOutline } from 'ionicons/icons';
 import * as AppStaticData from '../../services/AppStaticData';
-
+import { Platform } from '@ionic/angular';
+import { Keyboard } from '@capacitor/keyboard';
 @Component({
   selector: 'app-charts-section',
   templateUrl: './charts-section.component.html',
@@ -87,9 +88,31 @@ export class ChartsSectionComponent implements OnInit {
   selectedVal: any;
   bkChecked!: ChartListConfig;
   ImgBasePath:string = AppStaticData.ImagePath.basePath;
-
+  @ViewChild('tabContainer') tabContainer !: ElementRef<HTMLDivElement>
+  
   constructor(private http: HttpClient) {
     addIcons({ statsChartOutline, closeOutline, settings });
+
+    // this.platform.keyboardDidShow.subscribe(ev => {
+    //   console.log('open');
+    //  this.tabContainer.nativeElement.style.opacity = '0';
+    //   });
+     
+    //  this.platform.keyboardDidHide.subscribe(() => {
+    //   console.log('hide')
+    //   // let tabOpacity:any =  document.querySelector('.tabSection');
+    //   // tabOpacity.style.opacity = 1;
+    //   this.tabContainer.nativeElement.style.opacity= '1';
+    //   });
+
+    Keyboard.addListener('keyboardWillShow', info => {
+      this.tabContainer.nativeElement.style.visibility = 'hidden';
+    });
+
+    Keyboard.addListener('keyboardDidHide', () => {
+      this.tabContainer.nativeElement.style.visibility = 'visible';
+    });
+
   }
 
   ngOnInit() {

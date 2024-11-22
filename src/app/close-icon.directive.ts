@@ -72,6 +72,16 @@ export class CloseIconDirective {
       this.removeIcon();
     }
   }
+
+  @HostListener('focusout', ['$event.target.value']) onfocusout(value: string): void {
+    const nativeInput = document.querySelector('input');
+    if (value && value.length == 0) {
+      
+    } else {
+      this.removeIcon();
+    }
+  }
+
    removeIcon(): void {
     if (this.iconElement) {
       const parent = this.iconElement.parentElement;

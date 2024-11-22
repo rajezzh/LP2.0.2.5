@@ -76,8 +76,24 @@ export class SearchComponent implements OnInit {
 * @description:Handles the focus event for the search bar.
 */
   onSearchbarFocus() {
-    this.dividerShow = false;
+    this.dividerShow = false; //false
     this.isSearchbarFocused = true;
+    if(this.searchTerm && this.searchTerm !== ""){
+    let searchIcon: any = document.querySelector('.icon-end-input');
+    searchIcon.style.right = "65px";
+    this.dividerShow = true;
+    }
+  }
+
+  focusOutFunction(){
+    console.log(this.searchTerm, 'shdsjd');
+    if(this.searchTerm && this.searchTerm !== ""){
+      this.isSearchbarFocused = true; 
+    }else{
+      this.isSearchbarFocused = false; 
+    }
+    this.dividerShow = false;
+    // this.isSearchbarFocused = false; //true
     let searchIcon: any = document.querySelector('.icon-end-input');
     searchIcon.style.right = "16px";
   }

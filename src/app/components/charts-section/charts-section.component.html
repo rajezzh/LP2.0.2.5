@@ -1,4 +1,4 @@
-<div [ngClass]="showFullCharts ? 'tabSection animationTab' : 'tabSection'">
+<div #tabContainer [ngClass]="showFullCharts ? 'tabSection animationTab' : 'tabSection'">
   <ion-segment (ionChange)="selectedSegment($event)" [value]="selectedVal">
     <ion-segment-button value="today">
       <ion-label>Today</ion-label>
@@ -35,7 +35,6 @@
         <ion-select interface="popover" placeholder="Leads">
           <ion-select-option value="L">Leads</ion-select-option>
           <ion-select-option value="A">Applications</ion-select-option>
-          <!-- <ion-select-option value="orange">Orange</ion-select-option> -->
         </ion-select>
       </ion-item>
       <div>
@@ -91,11 +90,6 @@
           >
           </google-chart>
         </div>
-        <!-- <ng-template #showLoad>
-            <div class="rightSection">
-              <ion-spinner name="lines"></ion-spinner>
-            </div>
-          </ng-template> -->
       </div>
       <div class="cardBottom">
         <ion-segment class="cardSegment" value="lead" (ionChange)="selectedAppType($event)">
